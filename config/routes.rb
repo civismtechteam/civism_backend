@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   resources :scoops, only: %w[ show ] do
     member do
-      resources :perspectives, only: %w[ index ]
-      resources :facts, only: %w[ index ]
+      resources :perspectives, only: %w[ index ], controller: :scoop_perspectives
+      resources :facts, only: %w[ index ], controller: :scoop_facts
     end
   end
 
@@ -15,15 +15,15 @@ Rails.application.routes.draw do
 
   resources :perspectives, only: %w[ show ] do
     member do
-      resources :comments, only: %w[ index create ]
-      resources :votes, only: %w[ create ]
+      resources :comments, only: %w[ index create ], controller: :perspective_comments
+      resources :votes, only: %w[ create ], controller: :perspective_votes
     end
   end
 
   resources :facts, only: %w[ show ] do
     member do
-      resources :comments, only: %w[ index create ]
-      resources :votes, only: %w[ create ]
+      resources :comments, only: %w[ index create ], controller: :fact_comments
+      resources :votes, only: %w[ create ], controller: :fact_votes
     end
   end
 
