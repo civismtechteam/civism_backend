@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  source_link: MyString
+  num_upvotes: 1
+  num_downvotes: 1
+  num_comments: 1
+  scoop: one
+  user: one
+
+two:
+  body: MyString
+  source_link: MyString
+  num_upvotes: 1
+  num_downvotes: 1
+  num_comments: 1
+  scoop: two
+  user: two
