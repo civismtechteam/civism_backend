@@ -4,7 +4,12 @@ class ApplicationController < ActionController::API
   before_action :set_model_instances, only: %i[ index ]
 
   def model_instance
-    model.find(params[:id])
+    case params[:action]
+    when *%w[ show edit update destroy ]
+      model.find(params[:id])
+    when *%w[ new create ]
+      model.new
+    end
   end
 
   def model_instances
