@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+Prerequisites:
+  * install ruby 2.5.3 ([rbenv recommended][rbenv_link])
+  * install bundler gem `gem install bundler`
+  * install postgres ([postgres app recommended][postgres_link])
 
-* Ruby version
+Clone repo
+  * `git clone https://github.com/civismtechteam/civism_backend`
+  * cd into directory `cd civism_backend`
 
-* System dependencies
+Install dependencies
+  * `bundle install`
 
-* Configuration
+Setup database
+  * `bundle exec rails db:setup`
 
-* Database creation
+Start development server
+  * `bundle exec rails s`
 
-* Database initialization
+Navigate to `localhost:3000/scoops/1` to ensure it's working!
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[rbenv_link]: https://github.com/rbenv/rbenv
+[postgres_link]: https://postgresapp.com/
