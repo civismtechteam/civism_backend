@@ -58,9 +58,12 @@ end
 voteables = [ *facts, *perspectives, *Comment.all ]
 
 1000.times do
-  Vote.create({
-    user: users.sample,
-    direction: rand(2),
-    voteable: voteables.sample
-  })
+  begin
+    Vote.create({
+      user: users.sample,
+      direction: rand(2),
+      voteable: voteables.sample
+    })
+  rescue
+  end
 end
