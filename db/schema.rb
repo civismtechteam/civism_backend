@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20190308201722) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string "body"
-    t.integer "num_upvotes"
-    t.integer "num_downvotes"
-    t.integer "num_comments"
+    t.string "body", null: false
+    t.integer "num_upvotes", default: 0, null: false
+    t.integer "num_downvotes", default: 0, null: false
+    t.integer "num_comments", default: 0, null: false
     t.string "commentable_type"
     t.bigint "commentable_id"
     t.datetime "created_at", null: false
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20190308201722) do
   end
 
   create_table "facts", force: :cascade do |t|
-    t.string "body"
-    t.string "source_link"
-    t.integer "num_upvotes"
-    t.integer "num_downvotes"
-    t.integer "num_comments"
+    t.string "body", null: false
+    t.string "source_link", null: false
+    t.integer "num_upvotes", default: 0, null: false
+    t.integer "num_downvotes", default: 0, null: false
+    t.integer "num_comments", default: 0, null: false
     t.bigint "scoop_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20190308201722) do
   end
 
   create_table "perspectives", force: :cascade do |t|
-    t.string "body"
-    t.integer "num_upvotes"
-    t.integer "num_downvotes"
-    t.integer "num_comments"
+    t.string "body", null: false
+    t.integer "num_upvotes", default: 0, null: false
+    t.integer "num_downvotes", default: 0, null: false
+    t.integer "num_comments", default: 0, null: false
     t.bigint "scoop_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -55,29 +55,29 @@ ActiveRecord::Schema.define(version: 20190308201722) do
   end
 
   create_table "scoops", force: :cascade do |t|
-    t.string "name"
-    t.string "image_path"
+    t.string "name", null: false
+    t.string "image_path", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "image_path"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "image_path", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "direction"
+    t.integer "direction", null: false
     t.bigint "user_id"
     t.string "voteable_type"
     t.bigint "voteable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_votes_on_user_id"
-    t.index ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id"
+    t.index ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id", unique: true
   end
 
   add_foreign_key "facts", "scoops"
