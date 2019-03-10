@@ -1,6 +1,6 @@
 class Perspectives::CommentsController < ApplicationController
 
-  def model_instances
+  def comments
     Perspective.find(params[:id]).comments
   end
 

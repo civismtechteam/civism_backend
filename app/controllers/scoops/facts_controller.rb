@@ -1,6 +1,6 @@
 class Scoops::FactsController < ApplicationController
 
-  def model_instances
+  def facts
     Scoop.find(params[:id]).facts
   end
 

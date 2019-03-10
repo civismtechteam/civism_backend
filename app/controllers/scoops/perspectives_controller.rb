@@ -1,6 +1,6 @@
 class Scoops::PerspectivesController < ApplicationController
 
-  def model_instances
+  def perspectives
     Scoop.find(params[:id]).perspectives
   end
 

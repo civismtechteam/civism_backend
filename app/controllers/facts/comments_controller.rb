@@ -1,6 +1,6 @@
 class Facts::CommentsController < ApplicationController
 
-  def model_instances
+  def comments
     Fact.find(params[:id]).comments
   end
 

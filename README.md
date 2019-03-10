@@ -23,4 +23,4 @@ Start development server
 Navigate to `localhost:3000/scoops/1` to ensure it's working!
 
 [rbenv_link]: https://github.com/rbenv/rbenv
-[postgres_link]: https://postgresapp.com/
+[postgres_link]: https://postgresapp.com
