@@ -29,6 +29,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :comments, only: %i[] do
+      member do
+        resources :comments, only: %i[ create ], controller: "comments/comments", as: :comment_comments
+        resources :votes, only: %i[ create ], controller: "comments/votes", as: :comment_votes
+      end
+    end
+
   end
 
 end
