@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
   def create
     model_instance.assign_attributes(model_params)
     if model_instance.save
-      render(json: { success: true, errors: [], resource: model_instance.whitelisted_attributes) }
+      render(json: { success: true, errors: [], resource: model_instance.whitelisted_attributes })
     else
       render(json: { success: false, errors: model_instance.erros.full_messages }, status: 400)
     end
@@ -33,14 +33,22 @@ class ApplicationController < ActionController::API
   def generate_model_instance
     case params[:action]
     when *%w[ show edit update destroy ]
-      model.find(params[:id])
+      model.where(id: params[:id]).preload(model_instance_preload).first
     when *%w[ new create ]
       model.new
     end
   end
 
   def generate_model_instances
-    model.all
+    model.preload(model_instances_preload).all
+  end
+
+  def model_instance_preload
+    nil
+  end
+
+  def model_instances_preload
+    nil
   end
 
   def model_instance
@@ -62,6 +70,5 @@ class ApplicationController < ActionController::API
   def model_params
     params.require(model_name).permit(*permitted_model_columns)
   end
-
 
 end

@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  constraints format: :json do
+  defaults format: :json do
+
     namespace :initial_states do
-        get "scoops/:id", action: :scoops_show
+        resources :scoops, only: %i[ show ], controller: "scoops"#, defaults: {format: :json}
     end
 
     resources :scoops, only: %i[ index show ] do
