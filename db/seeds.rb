@@ -56,12 +56,13 @@ perspectives = Perspective.all
 end
 
 voteables = [ *facts, *perspectives, *Comment.all ]
+directions = [ -1, 1 ]
 
 1000.times do
   begin
     Vote.create({
       user: users.sample,
-      direction: rand(2),
+      direction: directions.sample,
       voteable: voteables.sample
     })
   rescue

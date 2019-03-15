@@ -1,4 +1,4 @@
-class Facts::VotesController < ApplicationController
+class Facts::VotesController < VotesController
 
   def model_params
     super.merge(voteable_type: "Fact", voteable_id: params[:id])
