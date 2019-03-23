@@ -6,7 +6,7 @@ class Vote < ApplicationRecord
   validates :user_id, uniqueness: { scope: [ :voteable_id, :voteable_type ] }
 
   after_save do
-    voteable.update_vote_counts!
+    voteable.update_vote_comment_counts!
   end
 
 end

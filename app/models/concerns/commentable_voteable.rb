@@ -11,7 +11,7 @@ module CommentableVoteable
       self.save!
     end
 
-    def update_vote_counts!
+    def update_vote_comment_counts!
       self.num_upvotes = votes.where(direction: 1).count
       self.num_downvotes = votes.where(direction: -1).count
       self.save!
