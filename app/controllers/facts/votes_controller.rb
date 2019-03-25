@@ -1,4 +1,8 @@
-class Facts::VotesController < ApplicationController
+class Facts::VotesController < VotesController
+
+  def success_resource
+    model_instance.voteable.reload
+  end
 
   def model_params
     super.merge(voteable_type: "Fact", voteable_id: params[:id])

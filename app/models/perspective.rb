@@ -1,5 +1,7 @@
 class Perspective < ApplicationRecord
 
+  include CommentableVoteable
+
   belongs_to :scoop
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy

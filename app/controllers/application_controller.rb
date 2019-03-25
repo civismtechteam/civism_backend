@@ -14,9 +14,9 @@ class ApplicationController < ActionController::API
   def create
     model_instance.assign_attributes(model_params)
     if model_instance.save
-      render(json: { success: true, errors: [], resource: model_instance.whitelisted_attributes })
+      render(json: { success: true, errors: [], resource: success_resource.whitelisted_attributes })
     else
-      render(json: { success: false, errors: model_instance.erros.full_messages }, status: 400)
+      render(json: { success: false, errors: model_instance.errors.full_messages }, status: 400)
     end
   end
 
@@ -69,6 +69,10 @@ class ApplicationController < ActionController::API
 
   def model_params
     params.require(model_name).permit(*permitted_model_columns)
+  end
+
+  def success_resource
+    model_instance
   end
 
 end
