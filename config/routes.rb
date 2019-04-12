@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
     resources :scoops, only: %i[ index show ] do
       member do
-        resources :perspectives, only: %i[ index ], controller: "scoops/perspectives", as: :scoop_perspectives
-        resources :facts, only: %i[ index ], controller: "scoops/facts", as: :scoop_facts
+        resources :perspectives, only: %i[ index create ], controller: "scoops/perspectives", as: :scoop_perspectives
+        resources :facts, only: %i[ index create ], controller: "scoops/facts", as: :scoop_facts
       end
     end
 
