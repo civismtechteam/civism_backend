@@ -32,3 +32,11 @@ json.perspectives do
     end
   end
 end
+
+json.users do
+  [ *@scoop.perspectives, *@scoop.facts ].each do |component|
+    json.set! component.user_id do
+      json.extract! component.user, *User.whitelisted_columns
+    end
+  end
+end

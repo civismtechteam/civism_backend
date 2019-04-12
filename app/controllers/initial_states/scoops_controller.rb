@@ -4,7 +4,7 @@ class InitialStates::ScoopsController < ApplicationController
   end
 
   def model_instance_preload
-    { facts: { comments: :comments }, perspectives: { comments: :comments } }
+    { facts: { comments: :comments, user: nil }, perspectives: { comments: :comments, user: nil } }
   end
 
 end

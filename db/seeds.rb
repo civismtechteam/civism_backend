@@ -1,6 +1,19 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+PROFILE_PICTURES = [
+  "https://images.unsplash.com/photo-1483410859390-6dbb1dc2337d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1540057268416-a8d6f0f60ac5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1532032877540-0793b44545a2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1498529605908-f357a9af7bf5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1541805500-0b420aa2d99c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1536763225213-b5592b525630?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1505075123357-35a9138620d9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1531750026848-8ada78f641c2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1535468850893-d6e543fbd7f5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+  "https://images.unsplash.com/photo-1521511189395-b82252213754?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&h=100&fit=crop&ixid=eyJhcHBfaWQiOjF9"
+]
+
 def random_comment
   [ Faker::GreekPhilosophers.quote, Faker::Hipster.sentence, Faker::Hacker.say_something_smart ].sample
 end
@@ -17,11 +30,11 @@ Scoop.create!([
 
 scoops = Scoop.all
 
-100.times do
+10.times do
   User.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    image_path: Faker::Avatar.image
+    image_path: PROFILE_PICTURES.pop || Faker::Avatar.image
   })
 end
 
