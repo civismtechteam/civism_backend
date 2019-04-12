@@ -82,34 +82,42 @@ facts = Fact.all[1..-1]
 
 # HQ2 First Fact Comments
 Comment.create!({
+  user: users.sample,
   body: "They literally could have just given those 25,000 people 92,000 dollars each...",
   commentable: Fact.first
 })
 Comment.create!({
+  user: users.sample,
   body: "How long until most of those jobs are automated by drones? Bookmark this page for when the layoffs are reported.",
   commentable: Fact.first
 })
 Comment.create!({
+  user: users.sample,
   body: "Well their subsidies are paid out per job per year so it won;t cost the city as much if they do.",
   commentable: Comment.second
 })
 Comment.create!({
+  user: users.sample,
   body: "The headquarters jobs are the people that program the drones. The warehouses are where the drones are used. These are not Amazon warehouses.",
   commentable: Comment.second
 })
 Comment.create!({
+  user: users.sample,
   body: "Amazon's new headquarter is the product, the cities are potiential consumers. Amazon did this to start a bidding war between cities. Cities wanting the product for their own economic gain -thus creating high demand. Number if cities are high + supply (1 HQ) very low = high price (tax benefit).",
   commentable: Fact.first
 })
 Comment.create!({
+  user: users.sample,
   body: "Corporations are high school cheerleaders the week before prom and municipalities/cities are pizza-faced nerds offering to do their homework for a year.",
   commentable: Fact.first
-})
+  })
 Comment.create!({
+  user: users.sample,
   body: "This is the largest economic development initiative that has ever been done by the City or the State or the City and the State together, believe it or not.",
   commentable: Fact.first
 })
 Comment.create!({
+  user: users.sample,
   body: "But how much tax revenue will it create via new income taxes, and all the other additional taxes that the new employees will generate? Factor in the time the headquarters will spend in those given locations.",
   commentable: Fact.first
 })
@@ -157,18 +165,22 @@ end
 
 # Perspective comments
 Comment.create!({
+  user: users.sample,
   body: "We'll see - I personally won't believe it until I see it.",
   commentable: Perspective.first
 })
 Comment.create!({
+  user: users.sample,
   body: "According to the weekday rider stats, the Queensboro, Queens Plaza, and Court St stations combined already see 40k daily riders.",
   commentable: Perspective.first
 })
 Comment.create!({
+  user: users.sample,
   body: "With the salaries being offered, there is a good chance many of the new riders will be 'reverse commuting' (from Manhattan to Queens) and have little effect on the crowding of the actual train. The platforms at Court Sq will get more clogged because of the lack of exits compared to some stations, but it's unlikely to affect large scale change on the Manhattan bound lines.",
   commentable: Perspective.first
 })
 Comment.create!({
+  user: users.sample,
   body: "Thanks for this breakdown; it's helpful to see it put together in this way.",
   commentable: Perspective.first
 })
@@ -177,6 +189,7 @@ perspectives = Perspective.all
 
 100.times do
   Comment.create!({
+    user: users.sample,
     body: random_comment,
     commentable: [ *facts, *perspectives, *Comment.order("RANDOM()").first(25) ].sample
   })
