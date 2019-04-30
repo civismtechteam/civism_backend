@@ -7,6 +7,7 @@ class CreatePerspectives < ActiveRecord::Migration[5.1]
       t.integer :num_comments, null: false, default: 0
       t.references :scoop, foreign_key: true
       t.references :user, foreign_key: true
+      t.string :viewpoint, null: false
 
       t.timestamps
     end

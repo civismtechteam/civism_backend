@@ -34,7 +34,8 @@ scoops = Scoop.all
   User.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    image_path: PROFILE_PICTURES.pop || Faker::Avatar.image
+    image_path: PROFILE_PICTURES.pop || Faker::Avatar.image,
+    verified: [true, false].sample
   })
 end
 
@@ -159,7 +160,8 @@ ULURP needs to be overhauled, it's completely corrupt and essentially all for sh
   Perspective.create!({
     body: percpective_body,
     scoop: scoops.first,
-    user: users.sample
+    user: users.sample,
+    viewpoint: %w[Conservative Liberal Moderate Neo-Liberal Laissez-Faire].sample
   })
 end
 

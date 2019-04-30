@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20190308201722) do
     t.integer "num_comments", default: 0, null: false
     t.bigint "scoop_id"
     t.bigint "user_id"
+    t.string "viewpoint", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["scoop_id"], name: "index_perspectives_on_scoop_id"
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20190308201722) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "image_path", null: false
+    t.boolean "verified", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
