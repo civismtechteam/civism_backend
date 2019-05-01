@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /
+hooks:
+  AfterInstall:
+    - location: deploy/after_install.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: deploy/before_install.sh
+      timeout: 300
+      runas: root

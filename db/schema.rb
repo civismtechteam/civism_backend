@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 20190308201722) do
     t.string "last_name", null: false
     t.string "image_path", null: false
     t.boolean "verified", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

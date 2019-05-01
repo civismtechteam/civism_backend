@@ -34,6 +34,8 @@ scoops = Scoop.all
   User.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "password",
     image_path: PROFILE_PICTURES.pop || Faker::Avatar.image,
     verified: [true, false].sample
   })
