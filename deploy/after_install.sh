@@ -1,3 +1,5 @@
+# install gems
+bundle install
 # create, migrate, seed db
 RAILS_ENV=production rails db:setup
 # start server
